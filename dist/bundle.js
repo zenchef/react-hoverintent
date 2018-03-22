@@ -82,7 +82,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	__webpack_require__(275);
+	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./style.scss\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	
 	var App = function (_Component) {
 	  (0, _inherits3.default)(App, _Component);
@@ -23931,7 +23931,7 @@
 	    value: function delay(e) {
 	      if (this.timer) this.timer = clearTimeout(this.timer);
 	      this.status = 0;
-	      return this.props.onMouseOut.call(this.element, e);
+	      return this.props.onMouseOut.call(e);
 	    }
 	  }, {
 	    key: 'tracker',
@@ -23952,7 +23952,7 @@
 	        this.pX = this.x;
 	        this.pY = this.y;
 	        this.timer = setTimeout(function () {
-	          return _this2.compare(_this2.element, e);
+	          return _this2.compare(e);
 	        }, this.props.interval);
 	      }
 	    }
@@ -23968,7 +23968,7 @@
 	        this.pY = e.clientY;
 	        this.element.addEventListener('mousemove', this.tracker.bind(this), false);
 	        this.timer = setTimeout(function () {
-	          return _this3.compare(_this3.element, e);
+	          return _this3.compare(e);
 	        }, this.props.interval);
 	      }
 	    }
@@ -23981,7 +23981,7 @@
 	      this.element.removeEventListener('mousemove', this.tracker.bind(this), false);
 	      if (this.status === 1) {
 	        this.timer = setTimeout(function () {
-	          return _this4.delay(_this4.element, e);
+	          return _this4.delay(e);
 	        }, this.props.timeout);
 	      }
 	    }
@@ -24144,12 +24144,6 @@
 	    return target
 	}
 
-
-/***/ }),
-/* 275 */
-/***/ (function(module, exports) {
-
-	// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

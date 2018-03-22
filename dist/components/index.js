@@ -72,7 +72,7 @@ var HoverIntent = function (_Component) {
     value: function delay(e) {
       if (this.timer) this.timer = clearTimeout(this.timer);
       this.status = 0;
-      return this.props.onMouseOut.call(this.element, e);
+      return this.props.onMouseOut.call(e);
     }
   }, {
     key: 'tracker',
@@ -93,7 +93,7 @@ var HoverIntent = function (_Component) {
         this.pX = this.x;
         this.pY = this.y;
         this.timer = setTimeout(function () {
-          return _this2.compare(_this2.element, e);
+          return _this2.compare(e);
         }, this.props.interval);
       }
     }
@@ -109,7 +109,7 @@ var HoverIntent = function (_Component) {
         this.pY = e.clientY;
         this.element.addEventListener('mousemove', this.tracker.bind(this), false);
         this.timer = setTimeout(function () {
-          return _this3.compare(_this3.element, e);
+          return _this3.compare(e);
         }, this.props.interval);
       }
     }
@@ -122,7 +122,7 @@ var HoverIntent = function (_Component) {
       this.element.removeEventListener('mousemove', this.tracker.bind(this), false);
       if (this.status === 1) {
         this.timer = setTimeout(function () {
-          return _this4.delay(_this4.element, e);
+          return _this4.delay(e);
         }, this.props.timeout);
       }
     }

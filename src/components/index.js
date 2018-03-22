@@ -23,7 +23,7 @@ class HoverIntent extends Component {
   delay (e) {
     if (this.timer) this.timer = clearTimeout(this.timer)
     this.status = 0
-    return this.props.onMouseOut.call(this.element, e)
+    return this.props.onMouseOut.call(e)
   }
   tracker (e) {
     this.x = e.clientX
@@ -37,7 +37,7 @@ class HoverIntent extends Component {
     } else {
       this.pX = this.x
       this.pY = this.y
-      this.timer = setTimeout(() => this.compare(this.element, e), this.props.interval)
+      this.timer = setTimeout(() => this.compare(e), this.props.interval)
     }
   }
   dispatchOver (e) {
@@ -47,14 +47,14 @@ class HoverIntent extends Component {
       this.pX = e.clientX
       this.pY = e.clientY
       this.element.addEventListener('mousemove', this.tracker.bind(this), false)
-      this.timer = setTimeout(() => this.compare(this.element, e), this.props.interval)
+      this.timer = setTimeout(() => this.compare(e), this.props.interval)
     }
   }
   dispatchOut (e) {
     if (this.timer) this.timer = clearTimeout(this.timer)
     this.element.removeEventListener('mousemove', this.tracker.bind(this), false)
     if (this.status === 1) {
-      this.timer = setTimeout(() => this.delay(this.element, e), this.props.timeout)
+      this.timer = setTimeout(() => this.delay(e), this.props.timeout)
     }
   }
   render () {
