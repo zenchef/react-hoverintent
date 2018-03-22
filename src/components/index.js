@@ -23,7 +23,7 @@ class HoverIntent extends Component {
   delay (e) {
     if (this.timer) this.timer = clearTimeout(this.timer)
     this.status = 0
-    return this.props.onMouseOut.call(e)
+    return this.props.onMouseOut.call(this.element, e)
   }
   tracker (e) {
     this.x = e.clientX
@@ -59,7 +59,7 @@ class HoverIntent extends Component {
   }
   render () {
     return React.cloneElement(this.props.children, {
-      ref: (element) => { this.element = element },
+      ref: (element) => { this.element = element }
     })
   }
 }

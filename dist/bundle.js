@@ -23931,7 +23931,7 @@
 	    value: function delay(e) {
 	      if (this.timer) this.timer = clearTimeout(this.timer);
 	      this.status = 0;
-	      return this.props.onMouseOut.call(e);
+	      return this.props.onMouseOut.call(this.element, e);
 	    }
 	  }, {
 	    key: 'tracker',
